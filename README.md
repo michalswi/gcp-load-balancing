@@ -4,9 +4,10 @@ Expose service running on GKE over external Load Balancer using ingress with int
 
 `client ---> external LB (L4 or L7) ---> internal LB (ingress) ---> GKE ---> svc`
 
-GKE is public not private (it can be private).
-
-Before you run 'apply' you can either use (uncomment one) [LB L4](./lb_layer4.tf) or [LB L7](./lb_layer7.tf) .
+Important:
+- GKE is public not private (it can be private)
+- internal HTTP(S) load balancer deployed base on 'gce-internal' definition in `hello_app.yaml`
+- before you run `apply` you can either use (uncomment one) [LB L4](./lb_layer4.tf) or [LB L7](./lb_layer7.tf)
 
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=<credentials>.json

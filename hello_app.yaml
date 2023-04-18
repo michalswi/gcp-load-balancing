@@ -49,6 +49,7 @@ kind: Ingress
 metadata:
   name: ingress
   annotations:
+    # gce-internal class deploys an internal HTTP(S) load balancer
     kubernetes.io/ingress.class: "gce-internal"
 spec:
   rules:
