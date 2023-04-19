@@ -57,3 +57,24 @@ terraform apply -var project=michal-testing-saas -auto-approve
 $ curl <external_ip>:80
 
 > if you get 502 server error, check if health check for created Load Balancer is green
+```
+
+To create custom name NEG:
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: sws-service
+  annotations:
+    cloud.google.com/neg: '{"exposed_ports": {"80":{"name": "app-service-80-neg"}}}'
+spec:
+  type: NodePort
+  selector:
+    app: sws
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+```
+I haven't found solution to make health check green once added to a backend...
+
