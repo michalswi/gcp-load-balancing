@@ -9,6 +9,10 @@ resource "google_compute_firewall" "http" {
   ]
   allow {
     protocol = "tcp"
+    ports = [
+      "80",
+      "443",
+    ]
   }
 }
 
@@ -21,5 +25,8 @@ resource "google_compute_firewall" "allow-ssh-from-iap" {
   ]
   allow {
     protocol = "tcp"
+    ports = [
+      "22",
+    ]
   }
 }

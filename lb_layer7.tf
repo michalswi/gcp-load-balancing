@@ -27,9 +27,9 @@ resource "google_compute_url_map" "web-map" {
 # backend services
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_backend_service
 resource "google_compute_backend_service" "http-map-backend-service" {
-  name     = "http-map-backend-service"
-  project  = var.project
-  protocol = "HTTP"
+  name        = "http-map-backend-service"
+  project     = var.project
+  protocol    = "HTTP"
   port_name   = "nodeportsvc"
   timeout_sec = 10
   health_checks = [
